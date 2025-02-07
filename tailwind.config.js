@@ -1,11 +1,12 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./app/**/*.{js,ts,jsx,tsx}",  // برای پوشه app
-    "./components/**/*.{js,ts,jsx,tsx}",  // برای پوشه components
-    "./pages/**/*.{js,ts,jsx,tsx}",  // برای صفحات
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},  // اینجا می‌توانید تغییرات دلخواه در تم را اعمال کنید
+    extend: {},
   },
   plugins: [],
-}
+};
