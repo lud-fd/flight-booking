@@ -1,45 +1,28 @@
 'use client';
-
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
 
-export default function FlightDetailsPage() {
-  const [flight, setFlight] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const { query } = useRouter();
-  const { flightId } = query;
+export default function FlightDetailsPage({ params }) {
+  const { flightId } = params;
+  const [flightDetails, setFlightDetails] = useState(null);
 
   useEffect(() => {
-    if (flightId) {
-      axios.get(`/api/flights/${flightId}`)
-        .then(response => {
-          setFlight(response.data);
-          setLoading(false);
-        })
-        .catch(error => {
-          console.error('Error fetching flight details:', error);
-          setLoading(false);
-        });
-    }
+    const fetchFlightDetails = async () => {
+      const response = await fetch(`/api/flights/${flightId}`);
+      const data = await response.json();
+      setFlightDetails(data);
+    };
+    fetchFlightDetails();
   }, [flightId]);
 
-  if (loading) {
-    return <div>در حال بارگذاری...</div>;
-  }
-
-  if (!flight) {
-    return <div>پرواز مورد نظر یافت نشد.</div>;
-  }
+  if (!flightDetails) return <div>Loading...</div>;
 
   return (
     <div>
       <h1>جزئیات پرواز</h1>
-      <p>مبدا: {flight.from_location}</p>
-      <p>مقصد: {flight.to_location}</p>
-      <p>تاریخ پرواز: {flight.departure_date}</p>
-      <p>قیمت: {flight.price} دلار</p>
-      <p>شرکت هواپیمایی: {flight.airline}</p>
+      <p>از: {flightDetails.from_location}</p>
+      <p>به: {flightDetails.to_location}</p>
+      <p>قیمت: {flightDetails.price}</p>
+      {/* اطلاعات دیگر پرواز */}
     </div>
   );
 }

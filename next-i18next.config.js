@@ -1,12 +1,6 @@
-import { useTranslation } from 'next-i18next';
-
-export default function FlightSearchBar() {
-  const { t } = useTranslation();
-
-  return (
-    <div>
-      <label>{t('from')}</label>
-      <input type="text" />
-    </div>
-  );
-}
+module.exports = {
+  i18n: {
+    locales: ['en', 'fa'],
+    defaultLocale: 'en',
+  },
+};

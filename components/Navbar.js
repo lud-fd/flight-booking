@@ -1,14 +1,13 @@
-// Navbar.js
-export default function Navbar() {
-  return (
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/flights">Flights</a></li>
-        <li><a href="/checkout">Checkout</a></li>
-      </ul>
-    </nav>
-  );
-}
+const Navbar = () => (
+  <nav className="flex justify-between p-4 bg-gray-800 text-white">
+    <a href="/" className="font-bold">Home</a>
+    <div>
+      <a href="/about" className="mr-4">About</a>
+      <a href="/flights">Flights</a>
+    </div>
+  </nav>
+);
+
+export default Navbar;
 
 

@@ -1,16 +1,16 @@
-import SearchBar from '@/components/SearchBar';
-import FlightCard from '@/components/FlightCard';
+import Navbar from "../components/Navbar";
 
-export default function Home() {
+const HomePage = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <h1 className="text-4xl text-center py-8">Welcome to Our Flight Booking Website</h1>
-      <SearchBar />
-      <div className="flex flex-wrap justify-center">
-        <FlightCard />
-        <FlightCard />
-        <FlightCard />
+    <div>
+      <Navbar />
+      <div className="p-4">
+        <h1 className="text-3xl font-bold">Welcome to the Flight Booking Website</h1>
+        <p>Search and book your flights from here.</p>
       </div>
     </div>
   );
-}
+};
+
+export default HomePage;
+
