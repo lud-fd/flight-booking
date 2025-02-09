@@ -1,16 +1,12 @@
-import Navbar from "../components/Navbar";
+import React from 'react';
 
-const HomePage = () => {
+export default function HomePage() {
   return (
-    <div>
-      <Navbar />
-      <div className="p-4">
-        <h1 className="text-3xl font-bold">Welcome to the Flight Booking Website</h1>
-        <p>Search and book your flights from here.</p>
-      </div>
+    <div className="max-w-4xl mx-auto py-16">
+      <h1 className="text-3xl font-bold text-center mb-4">Welcome to Flight Booking</h1>
+      <p className="text-lg text-gray-700">
+        Book your flights with ease. Start searching for your next adventure!
+      </p>
     </div>
   );
-};
-
-export default HomePage;
-
+}
